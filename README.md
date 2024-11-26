@@ -75,6 +75,12 @@ Parte modificada da função *`inserirElemListaOrd`*:
     resize (l, l->tamanho * 2);
   }
   ```
+- A função *`inserirElemListaOrdSemDup`* é modificada para que `MAX` seja substituído por `l->tamanho` para verificar o tamanho da lista.
+  
+Parte modificada da função *`inserirElemListaOrdSemDup`*:
+```
+if(l->nroElem >= l->tamanho) return false; // lista cheia
+```
 ### *Alteração em ClienteOrdenada.c*
 Por conta da inicialização e definição das variáveis e funções em *ListaOrdenada.h* e *ListaOrdenada.c* não foi necessária nenhuma mudança em relação à *ClienteOrdenada.c* para que o redimensionamento dinâmico ocorresse corretamente. Mas para a melhor verficação do funcionamento, as seguintes mudanças foram implementadas:
 - Em *`inserirElemListaOrd`* a `reg.chave = 4;` e `reg.chave = 12;` foram substituídos por `reg.chave = 5;` e `reg.chave = 13;` para quando o `for` seja executado e os números pares de 0 a 120 inseridos na lista, a vizualização da exclusão e inserção de números seja mais perceptível.
