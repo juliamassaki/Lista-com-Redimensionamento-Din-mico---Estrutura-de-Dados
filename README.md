@@ -4,7 +4,7 @@ ordenada para que ela suporte o redimensionamento dinâmico.
 ## Instruções
 - Inicializar a lista com 50 elementos de capacidade;
   
-Utilizando a função `resize`;
+Utilizando a função `resize`:
 - Dobrar o tamanho da lista quando a capacidade máxima for atingida;
 - Reduzir o tamanho da lista pela metade quando o número de elementos for 25% da capacidade;
 
