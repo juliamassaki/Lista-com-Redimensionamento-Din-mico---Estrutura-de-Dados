@@ -18,12 +18,16 @@ int main() {
   inserirElemListaOrd(&lista, reg);
   reg.chave = 3;
   inserirElemListaOrd(&lista, reg);
-  reg.chave = 4;
+  reg.chave = 5;
   inserirElemListaOrd(&lista, reg);
   reg.chave = 1;
   inserirElemListaOrd(&lista, reg);
-  reg.chave = 12;
+  reg.chave = 13;
   inserirElemListaOrd(&lista, reg);
+  for (int j = 0; j <= 120; j+= 2) {
+    reg.chave = j;
+    inserirElemListaOrd(&lista, reg);
+  }
 
   // Exibir lista após inserções
   exibirLista(&lista);
