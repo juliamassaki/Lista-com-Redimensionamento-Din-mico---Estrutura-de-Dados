@@ -84,16 +84,16 @@ if(l->nroElem >= l->tamanho) return false; // lista cheia
 ```
 ### *Alteração em ClienteOrdenada.c*
 Por conta da inicialização e definição das variáveis e funções em *ListaOrdenada.h* e *ListaOrdenada.c* não foi necessária nenhuma mudança em relação à *ClienteOrdenada.c* para que o redimensionamento dinâmico ocorresse corretamente. Mas para a melhor verficação do funcionamento, as seguintes mudanças foram implementadas:
-- Em `// Inserir elementos na lista`, quando chamada *`inserirElemListaOrd`*, `reg.chave = 4;` e `reg.chave = 12;` foram substituídos por `reg.chave = 5;` e `reg.chave = 13;` para que quando `for` seja executado e os números pares de 0 a 120 sejam inseridos na lista, a vizualização da inserção de números seja mais perceptível. Assim como, em `// Excluir alguns elementos da lista` para vericar a exclusão de elementos foi adicionado outro `for` que exclui os números pares de 0 a 120 da lista.
+- Em `// Inserir elementos na lista`, quando chamada *`inserirElemListaOrd`*, `reg.chave = 4;` e `reg.chave = 12;` foram substituídos por `reg.chave = 5;` e `reg.chave = 13;` para que quando `for (int j = 0; j <= 120; j+= 2)` seja executado e os números pares de 0 a 120 sejam inseridos na lista, a vizualização da inserção de números seja mais perceptível. Assim como, em `// Excluir alguns elementos da lista` para verificar a exclusão de elementos foi adicionado outro `for (int k = 0; k <= 120; k+= 2)` que exclui os números pares de 0 a 120 da lista.
 
-`for` que insere números pares à lista:
+`for (int j = 0; j <= 120; j+= 2)` que insere números pares à lista:
 ```
   for (int j = 0; j <= 120; j+= 2) {
     reg.chave = j;
     inserirElemListaOrd(&lista, reg);
   }
 ```
-`for` que exclui números pares da lista:
+`for (int k = 0; k <= 120; k+= 2)` que exclui números pares da lista:
 ```
   for (int k = 0; k <= 120; k+= 2) {
       (excluirElemLista(&lista, k));
