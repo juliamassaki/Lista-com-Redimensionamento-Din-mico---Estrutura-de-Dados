@@ -36,13 +36,13 @@ int main() {
 
   // Buscar um elemento na lista
   int pos = buscaSequencial(&lista, 4);
-  printf("Chave 4 encontrada na posicao: %i do arranjo A.\n", pos);
+  printf("Chave 5 encontrada na posicao: %i do arranjo A.\n", pos);
   
   pos = buscaBinaria(&lista, 4);
-  printf("Chave 4 encontrada na posicao: %i do arranjo A.\n", pos);
+  printf("Chave 5 encontrada na posicao: %i do arranjo A.\n", pos);
   
   pos = buscaSentinela(&lista, 4);
-  printf("Chave 4 encontrada na posicao: %i do arranjo A.\n", pos);
+  printf("Chave 5 encontrada na posicao: %i do arranjo A.\n", pos);
 
   // Excluir alguns elementos da lista
   if (excluirElemLista(&lista, 4)) printf("Exclusao bem sucedida: 4.\n");
@@ -60,5 +60,6 @@ int main() {
   printf("Numero de elementos na lista: %i.\n", tamanho(&lista));
   printf("Tamanho da lista (em bytes): %i.\n", tamanhoEmBytes(&lista));
 
+  free(lista.A);
   return 0;
 }
