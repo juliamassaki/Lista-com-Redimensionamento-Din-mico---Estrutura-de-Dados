@@ -3,6 +3,7 @@
 #define LISTA_SEQUENCIAL_ORDENADA_H
 
 #include <stdio.h>
+#include <stdlib>
 #define MAX 50
 #define ERRO -1
 #define bool int
@@ -17,8 +18,9 @@ typedef struct {
 } REGISTRO;
 
 typedef struct {
-  REGISTRO A[MAX+1];
+  REGISTRO *A;
   int nroElem;
+  int tamanho;
 } LISTA;
 
 // Declaração das funções
