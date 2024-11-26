@@ -60,7 +60,7 @@ void reinicializarLista(LISTA* l) {
   inicializarLista(l);
 }
 ```
-- A função *`excluirElemListaOrd`* é modificada para que quando a quantidade de elementos for menor ou igual à 25% da capacidade atual, a função *`resize`* seja acessada e o tamanho seja reduzido pela metade. 
+- A função *`excluirElemListaOrd`* é modificada para que quando a quantidade de elementos for menor ou igual à 25% da capacidade atual, a função *`resize`* seja chamada e o tamanho reduzido pela metade.
 
 Parte modificada da função *`excluirElemListaOrd`*:
 ```
@@ -68,7 +68,7 @@ Parte modificada da função *`excluirElemListaOrd`*:
     resize(l, l->tamanho / 2);
   }
 ```
-- A função *`inserirElemListaOrd`* é modificada para que quando a quantidade de elementos for maior ou igual a capacidade máxima, a função *`resize`* seja acessada e o tamanho seja dobrado.
+- A função *`inserirElemListaOrd`* é modificada para que quando a quantidade de elementos for maior ou igual a capacidade máxima, a função *`resize`* seja chamada e o tamanho dobrado.
 
 Parte modificada da função *`inserirElemListaOrd`*:
 ```
