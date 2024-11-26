@@ -48,6 +48,9 @@ int main() {
   if (excluirElemLista(&lista, 4)) printf("Exclusao bem sucedida: 4.\n");
   if (excluirElemLista(&lista, 8)) printf("Exclusao bem sucedida: 8 (não existe na lista).\n");
   if (excluirElemLista(&lista, 9)) printf("Exclusao bem sucedida: 9.\n");
+  for (int k = 0; k <= 120; k+= 2) {
+      (excluirElemLista(&lista, k));
+  }
 
   // Exibir lista após exclusões
   exibirLista(&lista);
