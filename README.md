@@ -84,13 +84,19 @@ if(l->nroElem >= l->tamanho) return false; // lista cheia
 ```
 ### *Alteração em ClienteOrdenada.c*
 Por conta da inicialização e definição das variáveis e funções em *ListaOrdenada.h* e *ListaOrdenada.c* não foi necessária nenhuma mudança em relação à *ClienteOrdenada.c* para que o redimensionamento dinâmico ocorresse corretamente. Mas para a melhor verficação do funcionamento, as seguintes mudanças foram implementadas:
-- Em *`inserirElemListaOrd`* a `reg.chave = 4;` e `reg.chave = 12;` foram substituídos por `reg.chave = 5;` e `reg.chave = 13;` para quando o `for` seja executado e os números pares de 0 a 120 inseridos na lista, a vizualização da exclusão e inserção de números seja mais perceptível.
+- Em `// Inserir elementos na lista`, quando chamada *`inserirElemListaOrd`*, `reg.chave = 4;` e `reg.chave = 12;` foram substituídos por `reg.chave = 5;` e `reg.chave = 13;` para que quando `for` seja executado e os números pares de 0 a 120 sejam inseridos na lista, a vizualização da inserção de números seja mais perceptível. Assim como, em `// Excluir alguns elementos da lista` para vericar a exclusão de elementos foi adicionado outro `for` que exclui os números pares de 0 a 120 da lista.
 
 `for` que insere números pares à lista:
 ```
   for (int j = 0; j <= 120; j+= 2) {
     reg.chave = j;
     inserirElemListaOrd(&lista, reg);
+  }
+```
+`for` que exclui números pares da lista:
+```
+  for (int k = 0; k <= 120; k+= 2) {
+      (excluirElemLista(&lista, k));
   }
 ```
 - Por conta da mudança anterior relacionada a substituição dos números pares pelos seus sucessores, as chamadas das funções `buscaSequencial(&lista, 4)`, `buscaBinaria(&lista, 4);` e `buscaSentinela(&lista, 4);` foram modificadas para `buscaSequencial(&lista, 5)`, `buscaBinaria(&lista, 5);` e `buscaSentinela(&lista, 5);`, respectivamente, assim como o número 4 também foi alterado para 5 quando a Chave era encontrada.
