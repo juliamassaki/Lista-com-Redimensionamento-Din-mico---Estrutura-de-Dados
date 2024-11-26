@@ -12,7 +12,13 @@ void resize(LISTA *1, int novaCapacidade) {
 
 /* Inicialização da lista sequencial (a lista já está criada e é apontada pelo endereço em l) */
 void inicializarLista(LISTA* l){
+  l->tamanho = 50;
   l->nroElem = 0;
+  l->A = (REGISTRO *)malloc(l->tamanho * sizeof(REGISTRO));
+  if (l->A == NULL) {
+    printf("Erro ao alocar memória!\n");
+    exit(1);
+  }
 } /* inicializarLista */
 
 
@@ -36,7 +42,7 @@ int tamanho(LISTA* l) {
    porque teremos as mesmas funcoes para listas ligadas.   
 */
 int tamanhoEmBytes(LISTA* l) {
-  return sizeof(LISTA);
+  return sizeof(LISTA) + l->tamanho * sizeof(REGISTRO);
 } /* tamanhoEmBytes */
 
 /* Retornar a chave do primeiro elemento da lista sequencial (caso haja) e ERRO
@@ -63,6 +69,7 @@ TIPOCHAVE enesimoElem(LISTA* l, int n) {
 /* Reinicializar a estrutura */
 void reinicializarLista(LISTA* l) {
   l->nroElem = 0;
+  inicializarLista(l);
 } /* reinicializarLista */
 
 
@@ -131,13 +138,18 @@ bool excluirElemListaOrd(LISTA* l, TIPOCHAVE ch) {
   if(pos == ERRO) return false; // não existe
   for(j = pos; j < l->nroElem-1; j++) l->A[j] = l->A[j+1];
   l->nroElem--;
+  if (l->nroElem <= l->tamanho / 4) {
+    resize(l, l->tamanho / 2);
+  }
   return true;
 } /* excluirElemListaOrd */
 
 
 /* Inserção em lista ordenada usando busca binária permitindo duplicação */
 bool inserirElemListaOrd(LISTA* l, REGISTRO reg) {
-  if(l->nroElem >= MAX) return false; // lista cheia
+  if(l->nroElem >= l->tamanho) {
+    resize (l, l->tamanho * 2);
+  }
   int pos = l->nroElem;
   while(pos > 0 && l->A[pos-1].chave > reg.chave) {
     l->A[pos] = l->A[pos-1];
