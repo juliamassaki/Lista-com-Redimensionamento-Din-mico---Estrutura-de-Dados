@@ -1,6 +1,14 @@
 // ListaOrdenada.c
 #include "ListaOrdenada.h"
 
+void resize(LISTA *1, int novaCapacidade) {
+  l->A = (REGISTRO *)realloc(l->A, novaCapacidade * sizeof(REGISTRO));
+  if (l->A == NULL) {
+    printf("Erro ao redimensionar a lista!\n");
+    exit(1);
+  }
+  l->tamanho = novaCapacidade;
+}
 
 /* Inicialização da lista sequencial (a lista já está criada e é apontada pelo endereço em l) */
 void inicializarLista(LISTA* l){
