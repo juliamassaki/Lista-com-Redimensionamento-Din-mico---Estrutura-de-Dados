@@ -1,7 +1,7 @@
 // ListaOrdenada.c
 #include "ListaOrdenada.h"
 
-void resize(LISTA *1, int novaCapacidade) {
+void resize(LISTA *l, int novaCapacidade) {
   l->A = (REGISTRO *)realloc(l->A, novaCapacidade * sizeof(REGISTRO));
   if (l->A == NULL) {
     printf("Erro ao redimensionar a lista!\n");
