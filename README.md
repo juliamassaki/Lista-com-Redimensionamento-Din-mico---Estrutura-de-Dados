@@ -1,4 +1,3 @@
-
 # Lista com Redimensionamento Dinâmico
 O objetivo da atividade é modificar a implementação de uma lista sequencial
 ordenada para que ela suporte o redimensionamento dinâmico.
