@@ -11,10 +11,12 @@ Utilizando a função `resize`;
 ## Funcionamento do código modificado
 ### *Alterações em ListaOrdenada.h*
 - `#include <stdlib.h>`
+- `#define MAX 50` é retirado, já que o tamanho da lista é alterado dinamicamente;
 - `REGISTRO *A;` é o ponteiro para o vetor de registros;
 - `int tamanho;` define tamanho que será a capacidade atual de elementos;
+- `void resize(LISTA* l, int novaCapacidade);` declara a nova função.
 ### *Alterações em ListaOrdenada.c*
-- A função *`resize`* recebe o novo tamanho da lista (reduzido ou expandido) e utiliza `realloc` para redimensionar o vetor de forma dinâmica sem modificar seus elementos.
+- A função *`resize`* recebe um ponteiro para a LISTA e o novo tamanho da lista (reduzido ou expandido) e utiliza `realloc` para redimensionar o vetor de forma dinâmica sem modificar seus elementos.
   
 Função *`resize`*:
 ```
@@ -76,7 +78,7 @@ Parte modificada da função *`inserirElemListaOrd`*:
   ```
 ### *Alteração em ClienteOrdenada.c*
 Por conta da inicialização e definição das variáveis e funções em *ListaOrdenada.h* e *ListaOrdenada.c* não foi necessária nenhuma mudança em relação à *ClienteOrdenada.c* para que o redimensionamento dinâmico ocorresse corretamente. Mas para a melhor verficação do funcionamento, as seguintes mudanças foram implementadas:
-- Em *`inserirElemListaOrd`* a `reg.chave = 4;` e `reg.chave = 12;` foram substituídos por `reg.chave = 5;` e `reg.chave = 13;` para quando o `for` seja executado e os números pares de 0 a 120 inseridos na lista, a viazualização da exclusão e inserção de números seja mais perceptível.
+- Em *`inserirElemListaOrd`* a `reg.chave = 4;` e `reg.chave = 12;` foram substituídos por `reg.chave = 5;` e `reg.chave = 13;` para quando o `for` seja executado e os números pares de 0 a 120 inseridos na lista, a vizualização da exclusão e inserção de números seja mais perceptível.
 
 `for` que insere números pares à lista:
 ```
@@ -87,4 +89,4 @@ Por conta da inicialização e definição das variáveis e funções em *ListaO
 ```
 - Por conta da mudança anterior relacionada a substituição dos números pares pelos seus sucessores, as chamadas das funções `buscaSequencial(&lista, 4)`, `buscaBinaria(&lista, 4);` e `buscaSentinela(&lista, 4);` foram modificadas para `buscaSequencial(&lista, 5)`, `buscaBinaria(&lista, 5);` e `buscaSentinela(&lista, 5);`, respectivamente, assim como o número 4 também foi alterado para 5 quando a Chave era encontrada.
 
-- Há a adição de `free(lista.A);`
+- Há a adição de `free(lista.A);` que libera a memória alocada por `lista.A`.
