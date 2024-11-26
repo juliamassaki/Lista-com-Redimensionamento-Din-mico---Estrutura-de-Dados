@@ -4,7 +4,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX 50
 #define ERRO -1
 #define bool int
 #define true 1
