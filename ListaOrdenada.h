@@ -3,7 +3,7 @@
 #define LISTA_SEQUENCIAL_ORDENADA_H
 
 #include <stdio.h>
-#include <stdlib>
+#include <stdlib.h>
 #define MAX 50
 #define ERRO -1
 #define bool int
