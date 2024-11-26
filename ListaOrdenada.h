@@ -23,6 +23,7 @@ typedef struct {
 } LISTA;
 
 // Declaração das funções
+void resize(LISTA* l, int novaCapacidade);
 void inicializarLista(LISTA* l);
 void exibirLista(LISTA* l);
 int tamanho(LISTA* l);
