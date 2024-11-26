@@ -164,7 +164,7 @@ bool inserirElemListaOrd(LISTA* l, REGISTRO reg) {
 
 /* Inserção em lista ordenada usando busca binária sem duplicação */
 bool inserirElemListaOrdSemDup(LISTA* l, REGISTRO reg) {
-  if(l->nroElem >= MAX) return false; // lista cheia
+  if(l->nroElem >= l->tamanho) return false; // lista cheia
   int pos;
   pos = buscaBinaria(l,reg.chave);
   if(pos != ERRO) return false; // elemento já existe
